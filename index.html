@@ -82,28 +82,16 @@
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
-
-    .final-message {
-      font-family: 'Cursive', sans-serif;
-      font-size: 3.5vw;
-      font-style: italic;
-      margin-top: 40px;
-    }
-    
-    .from-to {
-      font-family: 'Verdana', sans-serif;
-      font-size: 3vw;
-      font-weight: bold;
-      color: #FF1493;
-    }
   </style>
 </head>
 <body>
 
   <h1>✨💖 Happy 11-Month Anniversary, My Love! 💖✨</h1>
 
-  <!-- Click for Test Message -->
-  <p class="final-message">Click on any option to start the test!</p>
+  <!-- Test Start Button -->
+  <div id="startTest">
+    <button class="option-button" onclick="startTest()">Start Test</button>
+  </div>
 
   <!-- Question 1 -->
   <div id="question1" style="display:none;">
@@ -154,16 +142,22 @@
 
   <!-- Final Message -->
   <div id="finalMessage" style="display:none;">
-    <p class="question">🎉 Congratulations! You passed the quiz! Now, here's your special message! 💖✨</p>
+    <p>🎉 Congratulations! You passed the quiz! Now, here's your special message! 💖✨</p>
     <p class="question">🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. 💖✨</p>
     <p class="question">🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. 💫💞</p>
     <p class="question">🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖</p>
     <p class="question">🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨</p>
     <p class="question">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
-    <p class="from-to">🌷 To Shree (my always), 💫💖</p>
+    <p class="question">🌷 To Shree (my always), 💫💖</p>
   </div>
 
   <script>
+    // Function to start the quiz
+    function startTest() {
+      document.getElementById('startTest').style.display = 'none';
+      document.getElementById('question1').style.display = 'block';
+    }
+
     // Question 1 - What do you consider Anshu as?
     function nextQuestion1(answer) {
       if (answer === 'husbby') {
