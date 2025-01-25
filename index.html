@@ -23,7 +23,8 @@
       animation: fadeIn 2s ease-out;
     }
 
-    p {
+    .message {
+      display: none;
       font-size: 5vw;
       color: #333333;
       margin: 20px auto;
@@ -71,6 +72,27 @@
       animation: sparkleAnimation 2s infinite alternate;
     }
 
+    /* Button Styling */
+    .button {
+      background-color: #FF1493;
+      color: white;
+      padding: 15px 30px;
+      font-size: 2vw;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-top: 20px;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #FF69B4;
+    }
+
     /* Animation for text fade-in */
     @keyframes fadeIn {
       0% { opacity: 0; }
@@ -89,7 +111,7 @@
         font-size: 12vw;
       }
 
-      p {
+      .message {
         font-size: 6vw;
       }
 
@@ -110,30 +132,46 @@
 <body>
 
   <h1>✨💖 Happy 11-Month Anniversary, My Love! 💖✨</h1>
-  
-  <p>
-    🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. From our first conversation to now, you’ve become my everything—my reason to smile, my shoulder to lean on, and the one who makes everything brighter. 💖✨
-  </p>
 
-  <p>
-    🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. I am incredibly lucky to have you by my side through it all. 💫💞
-  </p>
+  <!-- Introduction Message with Button -->
+  <div id="intro">
+    <p class="special-text">🌹 Do you love your Anshu? 💖</p>
+    <button class="button" onclick="showMessage()">Click Here if You Do! 💖</button>
+  </div>
 
-  <p>
-    🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖
-  </p>
+  <!-- Hidden Message that will be revealed -->
+  <div class="message" id="message">
+    <p>
+      🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. From our first conversation to now, you’ve become my everything—my reason to smile, my shoulder to lean on, and the one who makes everything brighter. 💖✨
+    </p>
 
-  <p>
-    🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨
-  </p>
+    <p>
+      🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. I am incredibly lucky to have you by my side through it all. 💫💞
+    </p>
 
-  <p class="signature">
-    💖 With all my heart, From Anshu (yours forever) 💖✨
-  </p>
+    <p>
+      🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖
+    </p>
 
-  <p class="to-my-shree">
-    🌷 To Shree (my always) 💫💖
-  </p>
+    <p>
+      🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨
+    </p>
+
+    <p class="signature">
+      💖 With all my heart, From Anshu (yours forever) 💖✨
+    </p>
+
+    <p class="to-my-shree">
+      🌷 To Shree (my always), 💫💖
+    </p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
