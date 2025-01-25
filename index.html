@@ -3,68 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Your Love for Anshu 💖</title>
+  <title>Anniversary Fun Quiz</title>
   <style>
     body {
-      background-color: #F5E0F6;
+      background-color: #F0E1F1;
       text-align: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
 
     h1 {
-      font-size: 6vw;
+      font-size: 8vw;
       color: #FF1493;
       margin-top: 50px;
-      text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
-      letter-spacing: 5px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 3px;
       animation: fadeIn 2s ease-out;
-    }
-
-    .message {
-      display: none;
-      font-size: 5vw;
-      color: #333333;
-      margin: 20px auto;
-      line-height: 1.6;
-      max-width: 80%;
-      text-align: center;
-      font-weight: 600;
-      letter-spacing: 1px;
-      animation: fadeIn 3s ease-out;
     }
 
     .question {
       font-size: 4vw;
-      color: #FF6347;
-      margin-top: 40px;
+      color: #333333;
+      margin-top: 30px;
       font-weight: bold;
       animation: fadeIn 3s ease-out;
     }
 
-    .answers {
+    .options {
       margin-top: 20px;
     }
 
-    .button {
+    .option-button {
       background-color: #FF1493;
       color: white;
       padding: 15px 30px;
       font-size: 2.5vw;
       border: none;
       cursor: pointer;
-      border-radius: 12px;
+      border-radius: 10px;
       text-transform: uppercase;
-      font-weight: bold;
-      margin-top: 20px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease;
     }
 
-    .button:hover {
+    .option-button:hover {
       background-color: #FF69B4;
+    }
+
+    .answer-box {
+      margin-top: 20px;
+    }
+
+    .input-box {
+      padding: 10px;
+      font-size: 2vw;
+      margin-top: 10px;
+      width: 50%;
+      border-radius: 5px;
+      border: 2px solid #FF1493;
+    }
+
+    .error {
+      color: red;
+      font-size: 3vw;
+      margin-top: 10px;
     }
 
     /* Animation for text fade-in */
@@ -72,111 +78,122 @@
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
-
-    .sparkle {
-      color: #FFD700;
-      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
-      font-size: 5vw;
-      animation: sparkleAnimation 2s infinite alternate;
-    }
-
-    /* Animation for sparkle effect */
-    @keyframes sparkleAnimation {
-      0% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
-      100% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
-    }
-
-    /* Media Query for smaller screens (mobile devices) */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 12vw;
-      }
-
-      .message {
-        font-size: 5.5vw;
-      }
-
-      .question {
-        font-size: 6vw;
-      }
-
-      .button {
-        font-size: 5vw;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <h1>💖 Do You REALLY Love Your Anshu? 💖</h1>
+  <h1>✨💖 Happy 11-Month Anniversary, My Love! 💖✨</h1>
 
-  <div id="start-message">
-    <p class="question">💌 If you truly love your Anshu, take this fun quiz to prove it! 💖</p>
-    <button class="button" onclick="startQuiz()">Start Quiz! 📝</button>
+  <!-- Question 1 -->
+  <div id="question1">
+    <p class="question">What do you consider Anshu as?</p>
+    <div class="options">
+      <button class="option-button" onclick="nextQuestion1('husbby')">Husbby</button>
+      <button class="option-button" onclick="nextQuestion1('boyfie')">Boyfie</button>
+    </div>
   </div>
 
-  <div id="quiz" style="display:none;">
-    <!-- Question 1 -->
-    <p class="question" id="question1">What do you consider Anshu as?</p>
-    <div class="answers">
-      <button class="button" onclick="checkAnswer(1, 'Husbby')">Husbby 💍</button>
-      <button class="button" onclick="checkAnswer(1, 'Boyfie')">Boyfie 😘</button>
+  <!-- Question 2 -->
+  <div id="question2" style="display:none;">
+    <p class="question">What's your hubby's nickname (given by parents)?</p>
+    <div class="answer-box">
+      <input type="text" id="nickname" class="input-box" />
     </div>
+    <button class="option-button" onclick="nextQuestion2()">Submit</button>
+  </div>
 
-    <!-- Question 2 -->
-    <p class="question" id="question2" style="display:none;">What's your hubby's nickname (given by parents)?</p>
-    <div class="answers" id="answer2" style="display:none;">
-      <input type="text" id="answer2-input" placeholder="Type the nickname here..." class="button" />
+  <!-- Question 3 -->
+  <div id="question3" style="display:none;">
+    <p class="question">Whom does Anshu love more?</p>
+    <div class="options">
+      <button class="option-button" onclick="nextQuestion3('his mom')">His Mom</button>
+      <button class="option-button" onclick="nextQuestion3('his wifey')">His Wifey</button>
+      <button class="option-button" onclick="nextQuestion3('his sis')">His Sis</button>
     </div>
+  </div>
 
-    <!-- Question 3 -->
-    <p class="question" id="question3" style="display:none;">Whom does Anshu love more?</p>
-    <div class="answers" id="answer3" style="display:none;">
-      <button class="button" onclick="checkAnswer(3, 'His wifey')">His wifey 😘</button>
-      <button class="button" onclick="checkAnswer(3, 'His mom')">His mom 💐</button>
-      <button class="button" onclick="checkAnswer(3, 'His sis')">His sis 👯</button>
+  <!-- Question 4 -->
+  <div id="question4" style="display:none;">
+    <p class="question">Do you promise to not leave him ever, whatever the situation is, even if the whole world is against him, you, or both?</p>
+    <div class="options">
+      <button class="option-button" onclick="nextQuestion4('yes')">Yes</button>
+      <button class="option-button" onclick="nextQuestion4('no')">No</button>
+      <button class="option-button" onclick="nextQuestion4('maybe')">Maybe</button>
     </div>
+  </div>
 
-    <!-- Question 4 -->
-    <p class="question" id="question4" style="display:none;">Do you promise to never leave him, no matter what? 💖</p>
-    <div class="answers" id="answer4" style="display:none;">
-      <button class="button" onclick="checkAnswer(4, 'Yes')">Yes 💍</button>
-      <button class="button" onclick="checkAnswer(4, 'No')">No 😔</button>
-      <button class="button" onclick="checkAnswer(4, 'Maybe')">Maybe 🤔</button>
+  <!-- Question 5 -->
+  <div id="question5" style="display:none;">
+    <p class="question">What does your hubby (or if I may call Anshu) love to call his wifey?</p>
+    <div class="answer-box">
+      <input type="text" id="wifey-name" class="input-box" />
     </div>
+    <button class="option-button" onclick="finalAnswer()">Submit</button>
+  </div>
 
-    <!-- Question 5 -->
-    <p class="question" id="question5" style="display:none;">What does your hubby, or Anshu, love to call his wifey? 🥰</p>
-    <div class="answers" id="answer5" style="display:none;">
-      <input type="text" id="answer5-input" placeholder="Type the name here..." class="button" />
-    </div>
-
-    <!-- End of Quiz -->
-    <div id="end-message" style="display:none;">
-      <p class="message">🎉 Congratulations, you passed the quiz! 🥳 Here's your surprise message! 💖</p>
-      <p class="message">
-        🌹💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. From our first conversation to now, you’ve become my everything—my reason to smile, my shoulder to lean on, and the one who makes everything brighter. 💖✨
-      </p>
-
-      <p class="message">
-        🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. I am incredibly lucky to have you by my side through it all. 💫💞
-      </p>
-
-      <p class="message">
-        🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖
-      </p>
-
-      <p class="message">
-        🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨
-      </p>
-
-      <p class="message" style="font-size: 6vw; font-style: italic; color: #9932CC;">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
-      <p class="message" style="font-size: 8vw; font-family: 'Brush Script MT', cursive; color: #FF6347;">🌷 To Shree (my always), 💫💖</p>
-    </div>
+  <!-- Final Message -->
+  <div id="finalMessage" style="display:none;">
+    <p>🎉 Congratulations! You passed the quiz! Now, here's your special message! 💖✨</p>
+    <p class="question">🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. 💖✨</p>
+    <p class="question">🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. 💫💞</p>
+    <p class="question">🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖</p>
+    <p class="question">🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨</p>
+    <p class="question">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
+    <p class="question">🌷 To Shree (my always), 💫💖</p>
   </div>
 
   <script>
-    let currentQuestion = 0;
+    // Question 1 - What do you consider Anshu as?
+    function nextQuestion1(answer) {
+      if (answer === 'husbby') {
+        document.getElementById('question1').style.display = 'none';
+        document.getElementById('question2').style.display = 'block';
+      } else {
+        alert('Wrong answer! You must consider him as Hubby to continue! 😘');
+      }
+    }
 
-    function startQuiz() {
-      document.getElementById('start-message
+    // Question 2 - What is your hubby's nickname?
+    function nextQuestion2() {
+      const nickname = document.getElementById('nickname').value.trim().toLowerCase();
+      if (nickname === 'rup') {
+        document.getElementById('question2').style.display = 'none';
+        document.getElementById('question3').style.display = 'block';
+      } else {
+        alert('Wrong answer! You need to remember his nickname! 😘');
+      }
+    }
+
+    // Question 3 - Whom does Anshu love more?
+    function nextQuestion3(answer) {
+      if (answer === 'his wifey') {
+        document.getElementById('question3').style.display = 'none';
+        document.getElementById('question4').style.display = 'block';
+      } else {
+        alert('Oops! Wrong answer! He loves his Wifey more! 😘');
+      }
+    }
+
+    // Question 4 - Do you promise to not leave him?
+    function nextQuestion4(answer) {
+      if (answer === 'yes') {
+        document.getElementById('question4').style.display = 'none';
+        document.getElementById('question5').style.display = 'block';
+      } else {
+        alert('C’mon, you have to promise! No backing out! 😘');
+      }
+    }
+
+    // Final Question - What does Anshu love to call his wifey?
+    function finalAnswer() {
+      const wifeyName = document.getElementById('wifey-name').value.trim().toLowerCase();
+      if (wifeyName === 'shree') {
+        document.getElementById('question5').style.display = 'none';
+        document.getElementById('finalMessage').style.display = 'block';
+      } else {
+        alert('Wrong answer! You have to get it right! 😘');
+      }
+    }
+  </script>
+</body>
+</html>
