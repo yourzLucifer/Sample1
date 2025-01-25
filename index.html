@@ -108,12 +108,13 @@
 </head>
 <body>
 
-  <!-- First message that shows up when the page is opened -->
-  <h1>💖 Happy 11-month Anniversary! 💖</h1>
-  <p class="message" id="intro-message">🎉 But if you REALLY love your Anshu, you have to pass this test! 💕</p>
-  <button class="button" onclick="startQuiz()">Start the Test! 📝</button>
+  <h1>💖 Do You REALLY Love Your Anshu? 💖</h1>
 
-  <!-- Quiz starts here, hidden initially -->
+  <div id="start-message">
+    <p class="question">💌 If you truly love your Anshu, take this fun quiz to prove it! 💖</p>
+    <button class="button" onclick="startQuiz()">Start Quiz! 📝</button>
+  </div>
+
   <div id="quiz" style="display:none;">
     <!-- Question 1 -->
     <p class="question" id="question1">What do you consider Anshu as?</p>
@@ -154,11 +155,11 @@
     <div id="end-message" style="display:none;">
       <p class="message">🎉 Congratulations, you passed the quiz! 🥳 Here's your surprise message! 💖</p>
       <p class="message">
-        🌹💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. 💖✨
+        🌹💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. From our first conversation to now, you’ve become my everything—my reason to smile, my shoulder to lean on, and the one who makes everything brighter. 💖✨
       </p>
 
       <p class="message">
-        🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. 💫💞
+        🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. I am incredibly lucky to have you by my side through it all. 💫💞
       </p>
 
       <p class="message">
@@ -178,11 +179,4 @@
     let currentQuestion = 0;
 
     function startQuiz() {
-      document.getElementById('intro-message').style.display = 'none';
-      document.getElementById('quiz').style.display = 'block';
-    }
-
-    // Add other functions for the quiz and answers
-  </script>
-</body>
-</html>
+      document.getElementById('start-message
