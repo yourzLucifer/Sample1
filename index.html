@@ -15,14 +15,13 @@
     }
 
     h1 {
-      font-size: 8vw;
+      font-size: 7vw;
       color: #FF1493;
       margin-top: 50px;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       letter-spacing: 3px;
       animation: fadeIn 2s ease-out;
-      font-family: 'Bebas Neue', sans-serif; /* Changed font */
-      font-weight: bold; /* Bold text */
+      font-family: 'Lobster', cursive;
     }
 
     .question {
@@ -78,27 +77,45 @@
       margin-top: 10px;
     }
 
+    .intro-question {
+      font-size: 4vw;
+      color: #FF1493;
+      margin-top: 50px;
+      animation: fadeIn 2s ease-out;
+      font-family: 'Lobster', cursive;
+      cursor: pointer;
+    }
+
     /* Animation for text fade-in */
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
 
-    /* Signature font for "To" */
     .signature {
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Brush Script MT', cursive;
       font-size: 3vw;
-      color: #FF1493;
     }
+
+    .bold-text {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      font-size: 4vw;
+    }
+
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Intro Question -->
+  <div id="introQuestion">
+    <p class="intro-question" onclick="startQuiz()">If you truly love your Anshy, then you've got to pass a test.. click on this text to start.. let's see 👀</p>
+  </div>
 
   <h1>✨💖 Happy 11-Month Anniversary, My Love! 💖✨</h1>
 
   <!-- Question 1 -->
-  <div id="question1">
+  <div id="question1" style="display:none;">
     <p class="question">What do you consider Anshu as?</p>
     <div class="options">
       <button class="option-button" onclick="nextQuestion1('husbby')">Hubby</button>
@@ -137,7 +154,7 @@
 
   <!-- Question 5 -->
   <div id="question5" style="display:none;">
-    <p class="question">What does your hubby (or if I may call Anshu) love to call his wifey or you that's 🫵 ?</p>
+    <p class="question">What does your hubby (or if I may call Anshu) love to call his wifey or you that's is 🫵 ?</p>
     <div class="answer-box">
       <input type="text" id="wifey-name" class="input-box" />
     </div>
@@ -146,20 +163,23 @@
 
   <!-- Final Message -->
   <div id="finalMessage" style="display:none;">
-    <button class="option-button" onclick="showCongrats()">Reveal Special Message 💌</button>
-  </div>
-
-  <div id="congratsMessage" style="display:none;">
-    <p class="question">🎉 Congratulations! You passed the quiz! 💖✨</p>
+    <p>🎉 Congratulations! You passed the quiz! Now, here's your special message! 💖✨</p>
     <p class="question">🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. 💖✨</p>
     <p class="question">🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. 💫💞</p>
     <p class="question">🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖</p>
     <p class="question">🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨</p>
-    <p class="question">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
+    <p class="question bold-text">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
     <p class="question signature">🌷 To Shree (my always), 💫💖</p>
   </div>
 
   <script>
+    // Intro Question
+    function startQuiz() {
+      document.getElementById('introQuestion').style.display = 'none';
+      document.getElementById('h1').style.display = 'block';
+      document.getElementById('question1').style.display = 'block';
+    }
+
     // Question 1 - What do you consider Anshu as?
     function nextQuestion1(answer) {
       if (answer === 'husbby') {
@@ -197,24 +217,19 @@
         document.getElementById('question4').style.display = 'none';
         document.getElementById('question5').style.display = 'block';
       } else {
-        alert('C’mon, you have to promise! No backing out! 😘');
+        alert('You must promise to never leave him! 😘');
       }
     }
 
-    // Final Question - What does Anshu love to call his wifey?
+    // Question 5 - What does your hubby love to call his wifey?
     function finalAnswer() {
       const wifeyName = document.getElementById('wifey-name').value.trim().toLowerCase();
       if (wifeyName === 'shree') {
         document.getElementById('question5').style.display = 'none';
         document.getElementById('finalMessage').style.display = 'block';
       } else {
-        alert('Wrong answer! You have to get it right! 😘');
+        alert('Oops! That’s not the right name! 😘');
       }
-    }
-
-    function showCongrats() {
-      document.getElementById('finalMessage').style.display = 'none';
-      document.getElementById('congratsMessage').style.display = 'block';
     }
   </script>
 </body>
