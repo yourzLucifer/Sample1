@@ -21,7 +21,8 @@
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
       letter-spacing: 3px;
       animation: fadeIn 2s ease-out;
-      font-family: 'Lobster', cursive;
+      font-family: 'Bebas Neue', sans-serif; /* Changed font */
+      font-weight: bold; /* Bold text */
     }
 
     .question {
@@ -82,7 +83,15 @@
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
+
+    /* Signature font for "To" */
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3vw;
+      color: #FF1493;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -128,7 +137,7 @@
 
   <!-- Question 5 -->
   <div id="question5" style="display:none;">
-    <p class="question">What does your hubby (or if I may call Anshu) love to call his wifey or you that's is 🫵 ?</p>
+    <p class="question">What does your hubby (or if I may call Anshu) love to call his wifey or you that's 🫵 ?</p>
     <div class="answer-box">
       <input type="text" id="wifey-name" class="input-box" />
     </div>
@@ -137,13 +146,17 @@
 
   <!-- Final Message -->
   <div id="finalMessage" style="display:none;">
-    <p>🎉 Congratulations! You passed the quiz! Now, here's your special message! 💖✨</p>
+    <button class="option-button" onclick="showCongrats()">Reveal Special Message 💌</button>
+  </div>
+
+  <div id="congratsMessage" style="display:none;">
+    <p class="question">🎉 Congratulations! You passed the quiz! 💖✨</p>
     <p class="question">🌷💕 It’s hard to believe that 11 months have already passed since our paths first crossed. What seemed like a small moment has turned into an everlasting bond. You have brought so much light and love into my life, and every day with you feels like a new adventure. 💖✨</p>
     <p class="question">🌸 I adore the way you make every moment so special, from the little things you do to the way you understand me like no one else. You are not only my love but also my best friend. Together, we have made memories that will last a lifetime. Each shared laugh, each moment of quiet peace, and each crazy adventure we’ve had is something I cherish deeply. 💫💞</p>
     <p class="question">🌹 Our love isn’t just about grand gestures; it’s in the simple moments we share. Whether it’s a text, a call, or just a smile, it’s the everyday moments that remind me how much you mean to me. You’ve brought warmth and comfort to my life, and you make even the ordinary feel extraordinary. With every passing day, I find myself loving you more deeply, and I can’t wait to create more beautiful memories together. 💫💖</p>
     <p class="question">🌟 With you, I have learned the true meaning of love, patience, and trust. Our relationship has only grown stronger with time, and each day feels like a step closer to forever. Through every laugh, every tear, and every challenge, we’ve stood by each other. And as we celebrate these 11 months, I look forward to many more adventures with you—more laughter, more memories, and more love. You are my heart and soul, and I can’t imagine a future without you in it. 💖✨</p>
     <p class="question">💖 With all my heart, From Anshu (yours forever) 💖✨</p>
-    <p class="question">🌷 To Shree (my always), 💫💖</p>
+    <p class="question signature">🌷 To Shree (my always), 💫💖</p>
   </div>
 
   <script>
@@ -197,6 +210,11 @@
       } else {
         alert('Wrong answer! You have to get it right! 😘');
       }
+    }
+
+    function showCongrats() {
+      document.getElementById('finalMessage').style.display = 'none';
+      document.getElementById('congratsMessage').style.display = 'block';
     }
   </script>
 </body>
